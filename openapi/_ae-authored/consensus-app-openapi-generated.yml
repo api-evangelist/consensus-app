@@ -1,0 +1,331 @@
+openapi: 3.1.0
+info:
+  title: Consensus API
+  version: '2026-10-24'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-24: 5 operation(s) read from 16 public documentation page(s) (each operation
+    names its page in x-source). This is not the provider''s published contract; Consensus has published no machine-readable contract that the
+    pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 3
+    documentation: 2
+    pages-with-code: 9
+    pages-read: 16
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-24'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://github.com/Consensus-NLP/consensus-api
+  - https://docs.consensus.app/api-reference/quick-search.md
+  - https://docs.consensus.app/api-reference/poll-a-thread.md
+  - https://docs.consensus.app/api-reference/start-a-thread.md
+  - https://docs.consensus.app/api-reference/add-a-follow-up.md
+  - https://docs.consensus.app/api-reference/list-historical-threads.md
+  - https://docs.consensus.app/use-cases.md
+  - https://docs.consensus.app/api-full-text.md
+  - https://docs.consensus.app/api-use-cases.md
+  - https://docs.consensus.app/api-get-started.md
+  - https://docs.consensus.app/core-features/mcp.md
+  - https://docs.consensus.app/api-plans-and-access.md
+  - https://docs.consensus.app/use-cases/get-started.md
+  - https://docs.consensus.app/api-quickstart-search.md
+  - https://docs.consensus.app/api-quickstart-threads.md
+  - https://github.com/Consensus-NLP/consensus-api/blob/main/README.md
+servers:
+- url: https://api.consensus.app
+paths:
+  /v1/search:
+    get:
+      operationId: get_v1_search
+      tags:
+      - Search
+      summary: GET /v1/search
+      x-source: https://github.com/Consensus-NLP/consensus-api
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1SearchResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -G \" https://api.consensus.app/v1/search \"  -H \" x-api-key: $CONSENSUS_API_KEY \"  --data-urlencode \" query=Does creatine\
+          \ improve cognition? \"  --data-urlencode \" year_min=2015 \"  --data-urlencode \" study_types=rct,meta-analysis \" \n Python \n import\
+          \ requests \n resp = requests . get (\n \"https://api.consensus.app/v1/search\" ,\n headers = { \"x-api-key\" : \"YOUR_API_KEY\" },\n\
+          \ params = {\n \"query\" : \"Do"
+  /v1/threads:
+    get:
+      operationId: get_v1_threads
+      tags:
+      - Threads
+      summary: List historical Threads
+      description: 'The caller''s prior Threads, newest first, optionally filtered by a case-insensitive title substring. Rate limit: 1 request/second.
+        On this list, status may be absent for Threads inactive past the status window and title is substituted when the Thread has none; GET
+        the Thread for authoritative status and title.'
+      x-source: https://docs.consensus.app/api-reference/list-historical-threads.md
+      parameters:
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Title substring to match (case-insensitive).
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Max Threads to return.
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Pagination offset.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1ThreadsResponse'
+      x-evidence:
+        kind: documentation
+    post:
+      operationId: post_v1_threads
+      tags:
+      - Threads
+      summary: Start a Thread
+      description: 'Delegate a research task to the Consensus research agent and get a `thread_id` back immediately. Rate limit: 1 request/second.
+        The run is asynchronous: poll `GET /v1/threads/{thread_id}` until status is `idle`. A 5xx means the request may or may not have taken
+        effect: there is no idempotency key yet, so a blind retry can create a second Thread. Set `skill` (with `mode` `deep`) to run a named
+        research workflow such as a literature review.'
+      x-source: https://docs.consensus.app/api-reference/start-a-thread.md
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1ThreadsRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1ThreadsResponse'
+      x-evidence:
+        kind: documentation
+  /v1/threads/{threadid}:
+    post:
+      operationId: post_v1_threads_threadid
+      tags:
+      - Threads
+      summary: POST /v1/threads/{threadId}
+      x-source: https://docs.consensus.app/api-quickstart-threads.md
+      parameters:
+      - name: threadid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1ThreadsThreadidRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl -X POST "https://api.consensus.app/v1/threads/<thread_id>/interactions"  -H "x-api-key: $CONSENSUS_API_KEY"  -H "Content-Type:
+          application/json"  -d ''{ "input_message": "Do the results differ for adults over 60?" }''
+
+          ```'
+  /v1/threads/{threadId}/interactions:
+    post:
+      operationId: post_v1_threads_threadId_interactions
+      tags:
+      - Threads
+      summary: Add a follow-up
+      description: 'Continue the research conversation with full context of the earlier turns. Rate limit: 1 request/second. Refused with 409
+        while the Thread''s latest interaction is still running, so wait until status is `idle` or `failed` first. Returns a new `interaction_id`
+        immediately; poll `GET /v1/threads/{thread_id}` until status is `idle`. A 5xx means the request may or may not have taken effect (no idempotency
+        key yet). Set `skill` (with `mode` `deep`) to run a named research workflow for this follow-up.'
+      x-source: https://docs.consensus.app/api-reference/add-a-follow-up.md
+      parameters:
+      - name: threadId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1ThreadsThreadidInteractionsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1ThreadsThreadidInteractionsResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    GetV1SearchResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+              authors:
+                type: array
+                items:
+                  type: string
+              publish_year:
+                type: integer
+              doi:
+                type: string
+              journal_name:
+                type: string
+              citation_count:
+                type: integer
+              study_type:
+                type: string
+              sample_size:
+                type: integer
+              sjr_best_quartile:
+                type: integer
+              takeaway:
+                type: string
+              abstract:
+                type: string
+              url:
+                type: string
+        page:
+          type: integer
+        page_size:
+          type: integer
+        is_end:
+          type: boolean
+        next_page:
+          type: integer
+    GetV1ThreadsResponse:
+      type: object
+      properties:
+        threads:
+          type: array
+          description: Array of ThreadListItem objects.
+        has_more:
+          type: boolean
+          description: Indicates if more threads are available.
+    PostV1ThreadsRequest:
+      type: object
+      properties:
+        input_message:
+          type: string
+          description: The complete research brief. The agent is autonomous and asks no follow‑up questions, so include the whole task in one
+            message.
+        mode:
+          type: string
+          description: Agent depth. `pro` (~20 papers) for almost all requests; `deep` (~50 papers, structured report) requires a paid plan.
+        filters:
+          type: object
+          description: Global filters applied to every search the agent runs.
+        attachments:
+          type: object
+          description: Scope the research to specific papers/collections.
+        skill:
+          type: string
+          description: Run a named research workflow (a Skill) instead of the agent's open‑ended plan. Requires `mode` `deep`.
+      required:
+      - input_message
+    PostV1ThreadsResponse:
+      type: object
+      properties:
+        '200':
+          type: object
+          description: Successful Response
+        '422':
+          type: object
+          description: Validation Error
+    PostV1ThreadsThreadidRequest:
+      type: object
+      properties:
+        input_message:
+          type: string
+    PostV1ThreadsThreadidInteractionsRequest:
+      type: object
+      properties:
+        input_message:
+          type: string
+          description: The follow-up task. Earlier interactions are used as context automatically — don't restate them.
+        mode:
+          type: string
+          description: Depth for this follow-up.
+        filters:
+          type: object
+          description: ThreadFilters
+        attachments:
+          type: object
+          description: ThreadAttachments
+        skill:
+          type: string
+          description: Run a named research workflow (a Skill) instead of the agent's open-ended plan. Requires `mode` `deep`.
+      required:
+      - input_message
+    PostV1ThreadsThreadidInteractionsResponse:
+      type: object
+      properties:
+        thread_id:
+          type: string
+          description: Thread Id
+        interaction_id:
+          type: string
+          description: Interaction Id
+        created_at:
+          type: string
+          description: Created At
+        title:
+          type: string
+          description: Auto-generated Thread title.
+        status:
+          type: string
+          description: Always `running` on dispatch.
+        mode:
+          type: string
+          description: Mode of the interaction.
+        url:
+          type: string
+          description: Deep-link to the Thread on consensus.app.
+        poll_after_seconds:
+          type: integer
+          description: Recommended wait between `GET /v1/threads/{thread_id}` polls.
+        max_wait_seconds:
+          type: integer
+          description: Suggested polling ceiling before giving up (~180 pro, ~600 deep).
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: x-api-key
+security:
+- apiKey: []
+tags:
+- name: Search
+- name: Threads

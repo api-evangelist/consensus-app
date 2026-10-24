@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/consensus-app/main/json-schema/consensus-app-post-v1-threads-threadid-interactions-request-schema.json",
+  "title": "PostV1ThreadsThreadidInteractionsRequest",
+  "x-generated": "2026-10-24",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/consensus-app-openapi-generated.yml#/components/schemas/PostV1ThreadsThreadidInteractionsRequest",
+  "type": "object",
+  "properties": {
+    "input_message": {
+      "type": "string",
+      "description": "The follow-up task. Earlier interactions are used as context automatically — don't restate them."
+    },
+    "mode": {
+      "type": "string",
+      "description": "Depth for this follow-up."
+    },
+    "filters": {
+      "type": "object",
+      "description": "ThreadFilters"
+    },
+    "attachments": {
+      "type": "object",
+      "description": "ThreadAttachments"
+    },
+    "skill": {
+      "type": "string",
+      "description": "Run a named research workflow (a Skill) instead of the agent's open-ended plan. Requires `mode` `deep`."
+    }
+  },
+  "required": [
+    "input_message"
+  ]
+}

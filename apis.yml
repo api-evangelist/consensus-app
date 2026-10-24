@@ -1,25 +1,133 @@
 aid: consensus-app
+
 name: Consensus
-description: 'Consensus is a company surfaced via the API Evangelist harvest backlog (source: vc-portfolio;
-  backed by union-square-ventures) and added to the network as a stub for full-pipeline profiling.'
+
+image: https://consensus.app/images/og-default.png
+
+description: 'Consensus is a company surfaced via the API Evangelist harvest backlog (source: vc-portfolio; backed by union-square-ventures) and
+  added to the network as a stub for full-pipeline profiling.'
+
 url: https://raw.githubusercontent.com/api-evangelist/consensus-app/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:vc-portfolio
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-24 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-24'
+
 modified: '2026-10-24'
+
 tags:
-- Company
-apis: []
+- AI
+- EducationalApplication
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
-x-backed-by:
-- union-square-ventures
+
 common:
+- type: Plans
+  url: plans/consensus-app-plans-pricing.yml
+- type: Spectral
+  url: rules/consensus-app-rules.yml
+- type: JSONLD
+  url: json-ld/consensus-app-context.jsonld
+- type: Vocabulary
+  url: vocabulary/consensus-app-vocabulary.yml
+- type: DataModel
+  url: data-model/consensus-app-data-model.yml
+- type: ChangeLog
+  url: changelog/consensus-app-changelog.yml
+- type: Conventions
+  url: conventions/consensus-app-conventions.yml
+- type: Authentication
+  url: authentication/consensus-app-authentication.yml
+- type: Conformance
+  url: conformance/consensus-app-conformance.yml
+- type: LLMsTxt
+  url: llms/consensus-app-llms.txt
+- type: AgentCard
+  url: a2a/consensus-app-a2a.yml
+- type: SecurityTxt
+  url: well-known/consensus-app-help-security.txt
+- type: WellKnown
+  url: well-known/consensus-app-well-known.yml
+- type: Hosts
+  url: hosts/consensus-app-hosts.yml
+- type: Vendors
+  url: vendors/consensus-app-vendors.yml
+- type: TermsOfService
+  url: https://consensus.app/home/terms-of-service/
+- type: Support
+  url: https://help.consensus.app
+- type: PrivacyPolicy
+  url: https://consensus.app/home/privacy-policy/
+- type: Pricing
+  url: https://consensus.app/pricing
+- type: Newsroom
+  url: https://consensus.app/home/contact/media/
+- type: Leadership
+  url: https://consensus.app/questions/leadership/
+- type: GitHubOrganization
+  url: https://github.com/Consensus-NLP
+- type: Blog
+  url: https://consensus.app/home/blog/
+- type: GettingStarted
+  url: https://docs.consensus.app/api-quickstart-search
+- type: Documentation
+  url: https://docs.consensus.app/
+- type: APIReference
+  url: https://docs.consensus.app/llms.txt
+- type: DomainSecurity
+  url: security/consensus-app-domain-security.yml
 - type: Website
   url: https://consensus.app
+
+apis:
+- aid: consensus-app:consensus-app-api
+  name: Consensus API
+  description: 'Consensus API as documented publicly: 5 operations. Contract generated from the documentation by API Evangelist (2026-10-24);
+    not the provider''s own document.'
+  humanURL: https://github.com/Consensus-NLP/consensus-api
+  baseURL: https://api.consensus.app
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/consensus-app-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/consensus-app-post-v1-threads-threadid-interactions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/consensus-app-post-v1-threads-request-schema.json
+  - type: JSONSchema
+    url: json-schema/consensus-app-get-v1-search-response-schema.json
+  - type: JSONSchema
+    url: json-schema/consensus-app-post-v1-threads-threadid-interactions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/consensus-app-get-v1-threads-response-schema.json
+  - type: JSONSchema
+    url: json-schema/consensus-app-post-v1-threads-response-schema.json
+
+x-backed-by:
+- union-square-ventures
+
+x-coverage:
+  state: blocked
+  reason: bot-challenge
+  detail: Access to https://consensus.app/openapi.json was blocked by Cloudflare bot challenge.
+  evidence:
+  - url: https://consensus.app/openapi.json
+    status: 403
+  checked: '2026-10-24'
+x-enrichment:
+  date: '2026-10-24'
+  status: enriched
+  artifacts_added: 36
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

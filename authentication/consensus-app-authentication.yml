@@ -1,0 +1,23 @@
+generated: '2026-10-24'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.consensus.app/api-quickstart-search.md
+sources:
+- https://docs.consensus.app/api-quickstart-search.md
+- https://docs.consensus.app/api-quickstart-threads.md
+- https://docs.consensus.app/mcp-tools/quickstart.md
+- https://help.consensus.app/en/collections/4034444-getting-started-faqs
+description: Authentication methods for Consensus API
+schemes:
+- type: apiKey
+  name: API Key
+  evidence: 'curl -G "https://api.consensus.app/v1/search" -H "x-api-key: $CONSENSUS_API_KEY" \'
+  location: header
+  header: x-api-key
+- type: http-bearer
+  name: Bearer Token
+  evidence: API key as a Bearer token
+  location: header
+  header: Authorization
+note: No OAuth2 flows or other authentication schemes are documented on the provided pages.
+docs: https://docs.consensus.app/api-quickstart-search.md

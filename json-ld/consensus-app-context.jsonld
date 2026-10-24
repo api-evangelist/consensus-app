@@ -1,0 +1,101 @@
+{
+  "@context": {
+    "@vocab": "https://consensus.app/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "consensus": "https://consensus.app/schema#",
+    "GetV1SearchResponse": "consensus:GetV1SearchResponse",
+    "results": {
+      "@id": "consensus:results",
+      "@container": "@list"
+    },
+    "page": {
+      "@id": "consensus:page",
+      "@type": "xsd:integer"
+    },
+    "page_size": {
+      "@id": "consensus:page_size",
+      "@type": "xsd:integer"
+    },
+    "is_end": {
+      "@id": "consensus:is_end",
+      "@type": "xsd:boolean"
+    },
+    "next_page": {
+      "@id": "consensus:next_page",
+      "@type": "xsd:integer"
+    },
+    "GetV1ThreadsResponse": "consensus:GetV1ThreadsResponse",
+    "threads": {
+      "@id": "consensus:threads",
+      "@container": "@list"
+    },
+    "has_more": {
+      "@id": "consensus:has_more",
+      "@type": "xsd:boolean"
+    },
+    "PostV1ThreadsRequest": "consensus:PostV1ThreadsRequest",
+    "input_message": {
+      "@id": "consensus:input_message",
+      "@type": "xsd:string"
+    },
+    "mode": {
+      "@id": "consensus:mode",
+      "@type": "xsd:string"
+    },
+    "filters": {
+      "@id": "consensus:filters"
+    },
+    "attachments": {
+      "@id": "consensus:attachments"
+    },
+    "skill": {
+      "@id": "consensus:skill",
+      "@type": "xsd:string"
+    },
+    "PostV1ThreadsResponse": "consensus:PostV1ThreadsResponse",
+    "PostV1ThreadsThreadidRequest": "consensus:PostV1ThreadsThreadidRequest",
+    "PostV1ThreadsThreadidInteractionsRequest": "consensus:PostV1ThreadsThreadidInteractionsRequest",
+    "PostV1ThreadsThreadidInteractionsResponse": "consensus:PostV1ThreadsThreadidInteractionsResponse",
+    "thread_id": {
+      "@id": "consensus:thread_id",
+      "@type": "xsd:string"
+    },
+    "interaction_id": {
+      "@id": "consensus:interaction_id",
+      "@type": "xsd:string"
+    },
+    "created_at": {
+      "@id": "consensus:created_at",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "consensus:title",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "consensus:status",
+      "@type": "xsd:string"
+    },
+    "url": {
+      "@id": "consensus:url",
+      "@type": "xsd:string"
+    },
+    "poll_after_seconds": {
+      "@id": "consensus:poll_after_seconds",
+      "@type": "xsd:integer"
+    },
+    "max_wait_seconds": {
+      "@id": "consensus:max_wait_seconds",
+      "@type": "xsd:integer"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Consensus API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Consensus's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-24) from openapi/_ae-authored/consensus-app-openapi-generated.yml.",
+  "dcterms:created": "2026-10-24",
+  "dcterms:source": [
+    "openapi/_ae-authored/consensus-app-openapi-generated.yml"
+  ]
+}

@@ -1,0 +1,21 @@
+generated: '2026-10-24'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.consensus.app/api-quickstart-search.md
+sources:
+- https://docs.consensus.app/api-quickstart-search.md
+- https://docs.consensus.app/api-quickstart-threads.md
+- https://docs.consensus.app/mcp-tools/quickstart.md
+- https://help.consensus.app/en/collections/4034444-getting-started-faqs
+idempotency:
+  coverage: none
+  evidence: The documentation does not describe any idempotency key or mechanism.
+pagination:
+  style: offset
+  params:
+  - page
+  - page_size
+  evidence: Search endpoint supports `page` and `page_size` parameters for paging.
+versioning: v1 in endpoint paths (e.g., /v1/search, /v1/threads).
+authentication: API key passed via `x-api-key` header or as Bearer token.
+docs: https://docs.consensus.app/api-quickstart-search.md

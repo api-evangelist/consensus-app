@@ -1,0 +1,28 @@
+generated: '2026-10-24'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.consensus.app/enterprise/security.md
+sources:
+- https://docs.consensus.app/enterprise/security.md
+- https://help.consensus.app/en/articles/10093291-security
+standards:
+- id: soc2
+  conforms: true
+  evidence: Consensus is SOC 2 Type II compliant.
+- id: openapi-3.1
+  conforms: true
+  evidence: the document declares 3.1.0
+- id: oauth2
+  conforms: false
+  evidence: 'securitySchemes: apiKey (apiKey)'
+- id: rfc9457
+  conforms: false
+  evidence: no response declares application/problem+json
+- id: idempotency
+  conforms: false
+  evidence: no idempotency key parameter on mutating operations
+- id: pagination
+  conforms: true
+  evidence: list operations take limit, offset
+note: Only SOC 2 Type II is explicitly claimed for Consensus itself.
+docs: https://docs.consensus.app/enterprise/security.md

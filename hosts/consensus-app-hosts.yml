@@ -1,0 +1,105 @@
+generated: '2026-10-24'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 6
+  own: 4
+  other_domain: 1
+  platform: 1
+  roles:
+  - api
+  - docs
+  - other
+  - source
+  - support
+  - website
+hosts:
+- host: api.consensus.app
+  found_by:
+  - apis[]
+  - contract-discovery
+  types: []
+  serves:
+  - api
+  registrable_domain: consensus.app
+  role: api
+  relation: own
+- host: consensus.app
+  found_by:
+  - pointer
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - TermsOfService
+  - PrivacyPolicy
+  - Pricing
+  - Newsroom
+  - Leadership
+  - Blog
+  - Website
+  serves:
+  - docs
+  - cdn
+  vendor: cloudflare
+  registrable_domain: consensus.app
+  role: website
+  relation: own
+- host: docs.consensus.app
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - spec-found
+  - contract-discovery
+  - well-known
+  types:
+  - GettingStarted
+  - Documentation
+  - APIReference
+  serves:
+  - docs
+  - spec
+  registrable_domain: consensus.app
+  role: docs
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  - apis[]
+  - docs-index
+  types:
+  - GitHubOrganization
+  serves:
+  - docs
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: help.consensus.app
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  types:
+  - Support
+  serves:
+  - docs
+  registrable_domain: consensus.app
+  role: support
+  relation: own
+- host: mintlify.com
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: mintlify.com
+  role: other
+  relation: other-domain

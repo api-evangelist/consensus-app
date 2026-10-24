@@ -1,0 +1,36 @@
+generated: '2026-10-24'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://consensus.app/pricing/
+sources:
+- https://consensus.app/pricing/
+- https://docs.consensus.app/api-plans-and-access.md
+- https://docs.consensus.app/mcp-plans-and-access.md
+- https://help.consensus.app/en/articles/10087865-subscription-plans
+name: Consensus pricing
+audience: business-product
+pricing_basis: flat-platform
+plans:
+- name: Free
+  price_text: $0
+  price: 0
+  description: Free tier with essential search functionalities and 30 included API & MCP calls per month.
+- name: Pro
+  price_text: $20/month
+  price: 20
+  description: Pro plan with unlimited papers searches, unlimited Pro messages, 15 Deep reviews per month, unlimited study snapshots, and 500
+    included API & MCP calls per month.
+- name: Deep
+  price_text: $65/month
+  price: 65
+  description: Deep plan with unlimited papers searches, unlimited Pro messages, 200 Deep reviews per month, unlimited study snapshots, and 2,000
+    included API & MCP calls per month.
+- name: Teams
+  price_text: Custom pricing depending on team size
+  description: Teams plan with all Pro features, 50 Deep reviews per month per user, centralized billing, and 500 included API & MCP calls per
+    team member per month.
+- name: Enterprise
+  price_text: Contact sales
+  description: Enterprise plan with all Team features, greater volume discounts, centralized billing, 500 included API & MCP calls per user per
+    month, and custom quote.
+docs: https://consensus.app/pricing/

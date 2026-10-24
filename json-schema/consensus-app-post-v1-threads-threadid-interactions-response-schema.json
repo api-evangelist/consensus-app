@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/consensus-app/main/json-schema/consensus-app-post-v1-threads-threadid-interactions-response-schema.json",
+  "title": "PostV1ThreadsThreadidInteractionsResponse",
+  "x-generated": "2026-10-24",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/consensus-app-openapi-generated.yml#/components/schemas/PostV1ThreadsThreadidInteractionsResponse",
+  "type": "object",
+  "properties": {
+    "thread_id": {
+      "type": "string",
+      "description": "Thread Id"
+    },
+    "interaction_id": {
+      "type": "string",
+      "description": "Interaction Id"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Created At"
+    },
+    "title": {
+      "type": "string",
+      "description": "Auto-generated Thread title."
+    },
+    "status": {
+      "type": "string",
+      "description": "Always `running` on dispatch."
+    },
+    "mode": {
+      "type": "string",
+      "description": "Mode of the interaction."
+    },
+    "url": {
+      "type": "string",
+      "description": "Deep-link to the Thread on consensus.app."
+    },
+    "poll_after_seconds": {
+      "type": "integer",
+      "description": "Recommended wait between `GET /v1/threads/{thread_id}` polls."
+    },
+    "max_wait_seconds": {
+      "type": "integer",
+      "description": "Suggested polling ceiling before giving up (~180 pro, ~600 deep)."
+    }
+  }
+}

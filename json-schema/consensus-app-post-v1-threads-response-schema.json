@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/consensus-app/main/json-schema/consensus-app-post-v1-threads-response-schema.json",
+  "title": "PostV1ThreadsResponse",
+  "x-generated": "2026-10-24",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/consensus-app-openapi-generated.yml#/components/schemas/PostV1ThreadsResponse",
+  "type": "object",
+  "properties": {
+    "200": {
+      "type": "object",
+      "description": "Successful Response"
+    },
+    "422": {
+      "type": "object",
+      "description": "Validation Error"
+    }
+  }
+}

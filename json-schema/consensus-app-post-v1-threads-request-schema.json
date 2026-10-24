@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/consensus-app/main/json-schema/consensus-app-post-v1-threads-request-schema.json",
+  "title": "PostV1ThreadsRequest",
+  "x-generated": "2026-10-24",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/consensus-app-openapi-generated.yml#/components/schemas/PostV1ThreadsRequest",
+  "type": "object",
+  "properties": {
+    "input_message": {
+      "type": "string",
+      "description": "The complete research brief. The agent is autonomous and asks no follow‑up questions, so include the whole task in one message."
+    },
+    "mode": {
+      "type": "string",
+      "description": "Agent depth. `pro` (~20 papers) for almost all requests; `deep` (~50 papers, structured report) requires a paid plan."
+    },
+    "filters": {
+      "type": "object",
+      "description": "Global filters applied to every search the agent runs."
+    },
+    "attachments": {
+      "type": "object",
+      "description": "Scope the research to specific papers/collections."
+    },
+    "skill": {
+      "type": "string",
+      "description": "Run a named research workflow (a Skill) instead of the agent's open‑ended plan. Requires `mode` `deep`."
+    }
+  },
+  "required": [
+    "input_message"
+  ]
+}

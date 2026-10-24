@@ -1,0 +1,45 @@
+generated: '2026-10-24'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://help.consensus.app/en/articles/11954907-consensus-product-changelog
+sources:
+- https://help.consensus.app/en/articles/11954907-consensus-product-changelog
+entries:
+- breaking: false
+  highlights:
+  - Threads now available in the Consensus API and MCP
+  date: '2026-10-21'
+- breaking: false
+  highlights:
+  - Consensus is now available in Perplexity
+  date: '2026-10-20'
+- breaking: false
+  highlights:
+  - Skills
+  date: '2026-10-05'
+- breaking: false
+  highlights:
+  - New publisher partnerships with ASM and Rockefeller University Press
+  date: '2026-10-01'
+- breaking: false
+  highlights:
+  - Suggested Papers in My Library
+  date: '2026-09-28'
+- breaking: false
+  highlights:
+  - Figures now appear in AI responses
+  date: '2026-09-24'
+- breaking: false
+  highlights:
+  - Research Gaps Matrix updates
+  date: '2026-09-22'
+- breaking: false
+  highlights:
+  - New publisher partnership with AAAS
+  date: '2026-09-21'
+- breaking: false
+  highlights:
+  - Full text now available in the Consensus API
+  date: '2026-09-18'
+note: The page lists dated changelog entries without explicit version numbers, so versioning scheme and current version are not provided.
+docs: https://help.consensus.app/en/articles/11954907-consensus-product-changelog

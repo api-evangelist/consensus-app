@@ -1,0 +1,57 @@
+generated: '2026-10-24'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/_ae-authored/consensus-app-openapi-generated.yml
+vocabulary:
+  name: Consensus Domain Vocabulary
+  description: 'Terms declared by Consensus''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-24'
+  terms:
+  - term: GetV1SearchResponse
+    definition: 'Object declared by the contract with fields: results, page, page_size, is_end, next_page.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/consensus-app-openapi-generated.yml#/components/schemas/GetV1SearchResponse
+  - term: GetV1ThreadsResponse
+    definition: 'Object declared by the contract with fields: threads, has_more.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/consensus-app-openapi-generated.yml#/components/schemas/GetV1ThreadsResponse
+  - term: PostV1ThreadsRequest
+    definition: 'Object declared by the contract with fields: input_message, mode, filters, attachments, skill.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/consensus-app-openapi-generated.yml#/components/schemas/PostV1ThreadsRequest
+  - term: PostV1ThreadsResponse
+    definition: 'Object declared by the contract with fields: 200, 422.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/consensus-app-openapi-generated.yml#/components/schemas/PostV1ThreadsResponse
+  - term: PostV1ThreadsThreadidRequest
+    definition: 'Object declared by the contract with fields: input_message.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/consensus-app-openapi-generated.yml#/components/schemas/PostV1ThreadsThreadidRequest
+  - term: PostV1ThreadsThreadidInteractionsRequest
+    definition: 'Object declared by the contract with fields: input_message, mode, filters, attachments, skill.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/consensus-app-openapi-generated.yml#/components/schemas/PostV1ThreadsThreadidInteractionsRequest
+  - term: PostV1ThreadsThreadidInteractionsResponse
+    definition: 'Object declared by the contract with fields: thread_id, interaction_id, created_at, title, status, mode, url, poll_after_seconds,
+      max_wait_seconds.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/consensus-app-openapi-generated.yml#/components/schemas/PostV1ThreadsThreadidInteractionsResponse
+  - term: Search
+    definition: 'Resource group in the contract; its operation GET /v1/search: GET /v1/search'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/consensus-app-openapi-generated.yml
+  - term: Threads
+    definition: 'Resource group in the contract; its operation GET /v1/threads: The caller''s prior Threads, newest first, optionally filtered
+      by a case-insensitive title substring.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/consensus-app-openapi-generated.yml
